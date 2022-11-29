@@ -1,0 +1,19 @@
+.again {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+    font-size: 30px;
+}
+
+.again-btn {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #ED413E;
+    color: black;
+    font-size: 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 15px auto;
+    }
