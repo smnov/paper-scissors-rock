@@ -1,17 +1,19 @@
 body {
   background-color: #483948;
+  display: flex;
+  justify-content: center;
 }
 
 .game-btn {
   padding: 20px;
-  display: flex;
-  flex-direction: row;
   background-color: #ED413E;
   color: black;
   font-size: 22px;
   border-radius: 10px;
   cursor: pointer;
-  margin: 15px auto;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .rules-btn {
@@ -36,4 +38,5 @@ body {
 
 .field {
   margin-top: 70px;
+  justify-content: center;
 }

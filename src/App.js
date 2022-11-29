@@ -7,53 +7,68 @@ import Game from './components/Game';
 
 function App() {
   const choices = ["scissors", "rock", "paper"]
-
   const [score, setScore] = useState(0)
   const [rules, setRules] = useState(false)
-  const [result, setResult] = useState(false)
+  const [showResult, setShowResult] = useState("")
+  const [result, setResult] = useState([])
   const [game, setGame] = useState(true)
 
 var random = choices[Math.floor(Math.random()*choices.length)];
 
-const startGame = (event) => {
-  if (random === event.target.id) {
-          setGame(false)
-          setResult(true)
-  } else if (event.target.id === "paper") {
+const startGame = (event) => {  
+  if (event.target.id === "paper") {
       if (random === "scissors") {
           setScore(score - 1)
           setGame(false)
-          setResult(true)
+          setShowResult("YOU LOSE")
+          setResult(["PAPER", "SCISSORS"])
       } else if (random === "rock") {
           setScore(score + 1)
           setGame(false)
-          setResult(true)
+          setShowResult("YOU WIN")
+          setResult(["PAPER", "ROCK"])
+      } else if (random === event.target.id) {
+          setGame(false)
+          setShowResult("DRAW")
+          setResult(["PAPER", "PAPER"])
       }
   } else if (event.target.id === "scissors") {
     if (random === "rock") {
       setScore(score - 1)
       setGame(false)
-      setResult(true)
+      setShowResult("YOU LOSE")
+      setResult(["ROCK", "SCISSORS"])
     } else if (random === "paper") {
       setScore(score + 1)
       setGame(false)
-      setResult(true)
+      setShowResult("YOU WIN")
+      setResult(["SCISSORS", "PAPER"])
+    } else if (random === event.target.id) {
+      setGame(false)
+      setShowResult("DRAW")
+      setResult(["SCISSORS", "SCISSORS  "])
     }
   }  else if (event.target.id === "rock") {
     if (random === "scissors") {
       setScore(score + 1)
       setGame(false)
-      setResult(true)
+      setShowResult("YOU WIN")
+      setResult(["ROCK", "SCISSORS"])
     } else if (random === "paper") {
       setScore(score - 1)
       setGame(false)
-      setResult(true)
+      setShowResult("YOU LOSE")
+      setResult(["ROCK", "PAPER"])
+    } else if (random === event.target.id) {
+      setGame(false)
+      setShowResult("DRAW")
+      setResult(["ROCK", "ROCK"])
     }
   }
   }
 
   const startAgain = () => {
-    setResult(false)
+    setShowResult(false)
     setGame(true)
 }
 
@@ -74,7 +89,7 @@ const showRules = () => {
 
         <div className="field">
         <h1 className="score">SCORE: {score}</h1>
-        {result && <Results startAgain={startAgain}/> }
+        {showResult && <Results startAgain={startAgain} showResult={showResult} result={result}/> }
         {game && <Game startGame={startGame}/>}
         </div>
         <div>

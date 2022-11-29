@@ -1,5 +1,5 @@
 # PAPER-SCISSORS-ROCK
-it's a simple implementation of classic "paper-scissors-rock" game created with react.
+it's a simple implementation of classic "paper-scissors-rock" game created with React.
 
 npm install
 npm start
